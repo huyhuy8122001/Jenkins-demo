@@ -39,7 +39,7 @@ pipeline {
         //   cat /var/jenkins_home/workspace/BuildAndRun/my_password.txt | docker login --username huyhuy8122001 --password-stdin
         // """
         sh """
-          docker login --username foo --password-stdin < /var/jenkins_home/workspace/BuildAndRun/my_password.txt
+          docker login --username huyhuy8122001 --password-stdin < /var/jenkins_home/workspace/BuildAndRun/my_password.txt
         """
       }
     }
