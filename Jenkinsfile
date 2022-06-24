@@ -14,16 +14,18 @@ pipeline {
         sh """
           docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} .
         """
+        sh "docker push ${DOCKER_IMAGE}:${DOCKER_TAG}"
+
       }
     }
 
-    stage("run") {
-      steps {
-          sh """
-            docker run --rm ${DOCKER_IMAGE}:${DOCKER_TAG}
-          """
-      }
-    }
+    // stage("run") {
+    //   steps {
+    //       sh """
+    //         docker run --rm ${DOCKER_IMAGE}:${DOCKER_TAG}
+    //       """
+    //   }
+    // }
 
     stage("Clean up") {
       steps {
