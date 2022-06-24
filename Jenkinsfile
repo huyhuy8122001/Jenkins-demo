@@ -35,7 +35,9 @@ pipeline {
         // }
 
         // Login cach 3    cat /var/jenkins_home/workspace/BuildAndRun/my_password.txt
-        cat /var/jenkins_home/workspace/BuildAndRun/my_password.txt | docker login --username huyhuy8122001 --password-stdin
+        sh """
+          cat /var/jenkins_home/workspace/BuildAndRun/my_password.txt | docker login --username huyhuy8122001 --password-stdin
+        """
       }
     }
 
