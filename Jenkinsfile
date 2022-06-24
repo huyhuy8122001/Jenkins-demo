@@ -1,30 +1,20 @@
 pipeline {
-
-    agent any
-    
+  agent any
     stages {
-
-        stage("build") {
-
-            steps {
-                echo 'building the application.......'
-            }
+      stage("build") {
+        steps {
+          sh """
+            docker build -t hello_there
+          """
         }
+      }
 
-        stage("test") {
-
-            steps {
-                echo 'testing the application.......'
-            }
+      stage("run") {
+        steps {
+          sh """
+            docker run - rm hello_there
+          """
         }
-
-        stage("deploy") {
-
-            steps {
-                echo 'deploying the application......'
-            }
-        }
-
+      }
     }
-
 }
