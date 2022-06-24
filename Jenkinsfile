@@ -7,7 +7,7 @@ pipeline {
     DOCKER_TAG="${GIT_BRANCH.tokenize('/').pop()}-${BUILD_NUMBER}-${GIT_COMMIT.substring(0,6)}"
     
     // DockerHub Login
-    DOCKERHUB_CREDENTIALS = credentials('docker-hub')
+    //DOCKERHUB_CREDENTIALS = credentials('docker-hub')
   }
 
   stages {
