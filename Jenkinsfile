@@ -20,7 +20,7 @@ pipeline {
     stage("run") {
       steps {
           sh """
-            docker run --rm ${DOCKER_IMAGE}:${DOCKER_TAG}
+            docker run ${DOCKER_IMAGE}:${DOCKER_TAG}
           """
       }
     }
