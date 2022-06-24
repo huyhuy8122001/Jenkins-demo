@@ -17,8 +17,8 @@ pipeline {
         // sh """
         //   docker build -t hello_there .
         // """
-        echo 'Name of docker image is ${DOCKER_IMAGE}'
-        echo 'Tag of docker image is ${DOCKER_TAG}'
+        echo "Name of docker image is ${DOCKER_IMAGE}"
+        echo "Tag of docker image is ${DOCKER_TAG}"
       }
     }
     // stage("run") {
