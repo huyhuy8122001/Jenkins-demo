@@ -22,22 +22,22 @@ pipeline {
       }
     }
 
-    stage("Login") {
-      steps {
-        // Login cach 1
-        // sh """
-        //   echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin
-        // """
+    // stage("Login") {
+    //   steps {
+    //     // Login cach 1
+    //     // sh """
+    //     //   echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin
+    //     // """
         
-        // Login cach 2
-        // withCredentials([usernamePassword(credentialsId: 'docker-hub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-        //     sh 'echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin'
-        // }
+    //     // Login cach 2
+    //     // withCredentials([usernamePassword(credentialsId: 'docker-hub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+    //     //     sh 'echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin'
+    //     // }
 
-        // Login cach 3
-        
-      }
-    }
+    //     // Login cach 3
+
+    //   }
+    // }
 
     // stage("run") {
     //   steps {
