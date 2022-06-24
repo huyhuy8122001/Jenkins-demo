@@ -28,13 +28,13 @@ pipeline {
       }
     }
 
-    stage("Clean up") {
-      steps {
-          sh """
-            sh "docker image rm ${DOCKER_IMAGE}:${DOCKER_TAG}"
-          """
-      }
-    }
+    // stage("Clean up") {
+    //   steps {
+    //       sh """
+    //         sh "docker image rm ${DOCKER_IMAGE}:${DOCKER_TAG}"
+    //       """
+    //   }
+    // }
     
   }
 
