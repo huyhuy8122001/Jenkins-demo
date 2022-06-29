@@ -45,14 +45,14 @@ pipeline {
       }
     }
 
-    stage("Push") {
+    // stage("Push") {
 
-      steps {
-        sh """
-          docker push ${DOCKER_IMAGE}:${DOCKER_TAG}
-        """
+    //   steps {
+    //     sh """
+    //       docker push ${DOCKER_IMAGE}:${DOCKER_TAG}
+    //     """
 
-      }
+    //   }
 
     // stage("run") {
     //   steps {
@@ -61,12 +61,19 @@ pipeline {
     //       """
     //   }
     // }
-    }
-    
+
     stage("Clean up") {
       steps {
           sh """
             docker image rm ${DOCKER_IMAGE}:${DOCKER_TAG}
+          """
+      }
+    }
+
+    stage("Logout") {
+      steps {
+          sh """
+            docker logout
           """
       }
     }
