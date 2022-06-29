@@ -61,17 +61,14 @@ pipeline {
     //       """
     //   }
     // }
-
-
-    post {
-      always{
-        // Clean up
-        sh "docker image rm ${DOCKER_IMAGE}:${DOCKER_TAG}"
-        sh "docker logout"
-      }
+  }
+  
+  post {
+    always{
+      // Clean up
+      sh "docker image rm ${DOCKER_IMAGE}:${DOCKER_TAG}"
+      sh "docker logout"
     }
-
-    
   }
 
 }
