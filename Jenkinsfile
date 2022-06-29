@@ -1,30 +1,46 @@
-pipeline {
+pipeline{
 
-    agent any
-    
-    stages {
+	agent {label 'master'}
 
-        stage("build") {
+	environment {
+		DOCKERHUB_CREDENTIALS=credentials('docker-hub')
+	}
 
-            steps {
-                echo 'building the application...'
-            }
-        }
+	stages {
+	    
+	    stage('gitclone') {
 
-        stage("test") {
+			steps {
+				git 'https://github.com/huyhuy8122001/Jenkins-Pipeline-Dockerhub.git'
+			}
+		}
 
-            steps {
-                echo 'testing the application...'
-            }
-        }
+		stage('Build') {
 
-        stage("deploy") {
+			steps {
+				sh 'docker build -t huyhuy8122001/nodeapp_test:latest .'
+			}
+		}
 
-            steps {
-                echo 'deploying the application......'
-            }
-        }
+		stage('Login') {
 
-    }
+			steps {
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+			}
+		}
+
+		stage('Push') {
+
+			steps {
+				sh 'docker push huyhuy8122001/nodeapp_test:latest'
+			}
+		}
+	}
+
+	post {
+		always {
+			sh 'docker logout'
+		}
+	}
 
 }
